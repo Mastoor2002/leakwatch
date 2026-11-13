@@ -10,7 +10,7 @@ Schedule::call(function () {
         ->delete();
 })->daily()->description('Delete expired team invitations');
 
-// Leakwatch schedules (run `php artisan schedule:work` locally, or a cron in production).
+// Surfacewatch schedules (run `php artisan schedule:work` locally, or a cron in production).
 Schedule::command('leakwatch:scan-due')->hourly()->withoutOverlapping();
 Schedule::command('leakwatch:check-certificates')->dailyAt('06:10');
 Schedule::command('leakwatch:refresh-advisories')->dailyAt('06:40');

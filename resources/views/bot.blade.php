@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>LeakwatchBot – how our scanner works</title>
+    <title>SurfacewatchBot – how our scanner works</title>
     <style>
         body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; max-width: 720px; margin: 48px auto; padding: 0 20px; color: #18181b; line-height: 1.6; }
         h1 { font-size: 28px; } h2 { font-size: 18px; margin-top: 32px; }
@@ -12,8 +12,8 @@
     </style>
 </head>
 <body>
-    <h1>LeakwatchBot</h1>
-    <p>If you saw <code>{{ config('leakwatch.http.user_agent') }}</code> in your logs, a Leakwatch user asked us to check a website for common security misconfigurations.</p>
+    <h1>SurfacewatchBot</h1>
+    <p>If you saw <code>{{ config('leakwatch.http.user_agent') }}</code> in your logs, a Surfacewatch user asked us to check a website for common security misconfigurations.</p>
 
     <h2>What we do</h2>
     <ul>

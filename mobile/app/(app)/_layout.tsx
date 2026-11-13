@@ -14,7 +14,7 @@ export default function AppLayout() {
         contentStyle: { backgroundColor: t.bg },
       }}
     >
-      <Stack.Screen name="index" options={{ title: 'Leakwatch' }} />
+      <Stack.Screen name="index" options={{ title: 'Surfacewatch' }} />
       <Stack.Screen name="site/[id]" options={{ title: 'Site' }} />
       <Stack.Screen name="settings" options={{ title: 'Settings', presentation: 'modal' }} />
     </Stack>

@@ -1,12 +1,12 @@
-# Leakwatch
+# Surfacewatch
 
 **Find the leaks attackers scan for — before they do.**
 
-Leakwatch monitors a team's Laravel (and other PHP) websites from the outside. It finds the mistakes botnets like Androxgh0st scan the internet for — exposed `.env` files, debug mode, public Telescope/Horizon dashboards, a wrong document root, readable logs, weak TLS, missing headers, insecure cookies, missing SPF/DMARC — and explains in plain English how to fix each one. A tiny Composer agent reports each app's installed packages so Leakwatch can alert when one of them gets a security advisory, across every client at once.
+Surfacewatch monitors a team's Laravel (and other PHP) websites from the outside. It finds the mistakes botnets like Androxgh0st scan the internet for — exposed `.env` files, debug mode, public Telescope/Horizon dashboards, a wrong document root, readable logs, weak TLS, missing headers, insecure cookies, missing SPF/DMARC — and explains in plain English how to fix each one. A tiny Composer agent reports each app's installed packages so Surfacewatch can alert when one of them gets a security advisory, across every client at once.
 
 Built with Laravel 13, Livewire 4 (single-file components), Flux UI and Pest.
 
-**Live app:** https://leakwatch.tech
+**Live app:** https://leakwatch.tech (the app was renamed Surfacewatch; the domain, repo and internal identifiers keep the old name for now).
 
 ## Screenshots
 
@@ -29,7 +29,7 @@ Built with Laravel 13, Livewire 4 (single-file components), Flux UI and Pest.
 
 ## Security design (the interview talking points)
 
-| Risk | How Leakwatch handles it |
+| Risk | How Surfacewatch handles it |
 |---|---|
 | SSRF — users type the URLs we fetch | Every request goes through `App\Scanning\SafeHttp`: DNS is resolved, **every** IP must be public (blocks 127/8, 10/8, 172.16/12, 192.168/16, 169.254.169.254, IPv6 private/link-local, IPv4-mapped IPv6), the connection is pinned to the checked IP (no DNS rebinding), only ports 80/443/8080/8443, redirects followed manually and never to another site. |
 | Scanning sites you don't own | Path probes need verified ownership; unverified sites only get passive checks (homepage headers, TLS, DNS). |
@@ -91,7 +91,7 @@ See `SPEC.md` for the full specification and `DECISIONS.md` for why things are b
 
 ## Mobile app (Android & iOS)
 
-A React Native (Expo) companion app lives in [`mobile/`](mobile/README.md). It signs in against the versioned JSON API (`/api/v1`) with a personal access token, shows your fleet overview and per-site findings, and can start and follow a scan. It talks to **your own Leakwatch server over HTTPS**.
+A React Native (Expo) companion app lives in [`mobile/`](mobile/README.md). It signs in against the versioned JSON API (`/api/v1`) with a personal access token, shows your fleet overview and per-site findings, and can start and follow a scan. It talks to **your own Surfacewatch server over HTTPS**.
 
 ## API
 
@@ -103,7 +103,7 @@ With Herd: `herd secure leakwatch` (then browse `https://leakwatch.test`). In pr
 
 ## Ethics
 
-Leakwatch performs only passive checks on unverified sites and never exploits a finding. Use it only on sites you own or have written permission to test.
+Surfacewatch performs only passive checks on unverified sites and never exploits a finding. Use it only on sites you own or have written permission to test.
 
 ## License
 

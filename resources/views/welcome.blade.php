@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ config('app.name', 'Leakwatch') }} – find the leaks attackers scan for</title>
+        <title>{{ config('app.name', 'Surfacewatch') }} – find the leaks attackers scan for</title>
 
         <link rel="icon" href="/favicon.ico" sizes="any">
         <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -20,7 +20,7 @@
                     <span class="flex size-8 items-center justify-center rounded-md bg-white text-zinc-950">
                         <x-app-logo-icon class="size-5" />
                     </span>
-                    {{ config('app.name', 'Leakwatch') }}
+                    {{ config('app.name', 'Surfacewatch') }}
                 </div>
                 <nav class="flex items-center gap-3 text-sm">
                     @auth
@@ -40,7 +40,7 @@
                     {{ __('Find the leaks attackers scan for — before they do.') }}
                 </h1>
                 <p class="mt-6 max-w-2xl text-lg text-zinc-400">
-                    {{ __('Botnets like Androxgh0st crawl the internet for exposed .env files, debug pages and open admin dashboards. Leakwatch checks every site you look after for exactly those mistakes, watches your Composer packages for new vulnerabilities, and tells you in plain English how to fix each problem.') }}
+                    {{ __('Botnets like Androxgh0st crawl the internet for exposed .env files, debug pages and open admin dashboards. Surfacewatch checks every site you look after for exactly those mistakes, watches your Composer packages for new vulnerabilities, and tells you in plain English how to fix each problem.') }}
                 </p>
                 <div class="mt-8 flex flex-wrap gap-3">
                     <a href="{{ Route::has('register') ? route('register') : route('login') }}" class="rounded-md bg-red-500 px-5 py-3 font-medium text-white hover:bg-red-400">{{ __('Start monitoring') }}</a>

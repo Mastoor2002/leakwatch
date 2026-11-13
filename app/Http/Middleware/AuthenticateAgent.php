@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Authenticates the Leakwatch agent with its per-site bearer token.
+ * Authenticates the Surfacewatch agent with its per-site bearer token.
  * Only a SHA-256 hash of the token is stored, like a password.
  */
 class AuthenticateAgent

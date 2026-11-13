@@ -55,7 +55,7 @@ export default function Settings() {
       />
 
       <Body muted style={{ textAlign: 'center', fontSize: 12 }}>
-        Leakwatch mobile {Constants.expoConfig?.version ?? '1.0.0'} · open source
+        Surfacewatch mobile {Constants.expoConfig?.version ?? '1.0.0'} · open source
       </Body>
     </ScrollView>
   );

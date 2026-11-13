@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome')->name('home');
 
-// Public page explaining what LeakwatchBot is (our scanner's User-Agent links here).
+// Public page explaining what SurfacewatchBot is (our scanner's User-Agent links here).
 Route::view('bot', 'bot')->name('bot');
 
 Route::prefix('{current_team}')

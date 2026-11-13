@@ -178,7 +178,7 @@ new #[Title('Sites')] class extends Component {
         <form wire:submit="addSite" class="space-y-6">
             <div>
                 <flux:heading size="lg">{{ __('Add a site') }}</flux:heading>
-                <flux:subheading>{{ __('You\'ll verify ownership before Leakwatch probes anything beyond the homepage.') }}</flux:subheading>
+                <flux:subheading>{{ __('You\'ll verify ownership before Surfacewatch probes anything beyond the homepage.') }}</flux:subheading>
             </div>
 
             <flux:input wire:model="url" :label="__('Website address')" placeholder="https://example.com" required autofocus data-test="site-url" />

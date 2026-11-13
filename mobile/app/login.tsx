@@ -46,7 +46,7 @@ export default function Login() {
             <View style={[styles.logo, { backgroundColor: t.accent }]}>
               <Text style={styles.logoText}>L</Text>
             </View>
-            <Title>Leakwatch</Title>
+            <Title>Surfacewatch</Title>
             <Body muted style={{ textAlign: 'center' }}>
               Security exposure monitoring for the Laravel sites you look after.
             </Body>

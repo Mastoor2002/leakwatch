@@ -44,7 +44,7 @@ return [
     'scan_driver' => env('LEAKWATCH_SCAN_DRIVER', 'inline'),
 
     'http' => [
-        'user_agent' => env('LEAKWATCH_USER_AGENT', 'LeakwatchBot/0.1 (+'.rtrim((string) env('APP_URL', 'http://localhost'), '/').'/bot)'),
+        'user_agent' => env('LEAKWATCH_USER_AGENT', 'SurfacewatchBot/0.1 (+'.rtrim((string) env('APP_URL', 'http://localhost'), '/').'/bot)'),
         'timeout' => (int) env('LEAKWATCH_HTTP_TIMEOUT', 10),
         'max_requests_per_check' => 15,
         'max_body_bytes' => 2 * 1024 * 1024,

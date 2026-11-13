@@ -16,7 +16,7 @@ test('requests to public hosts go through with our user agent', function () {
     $response = app(SafeHttp::class)->get('https://shop.example.com/');
 
     expect($response->body())->toBe('ok');
-    Http::assertSent(fn ($request) => str_starts_with($request->header('User-Agent')[0], 'LeakwatchBot/'));
+    Http::assertSent(fn ($request) => str_starts_with($request->header('User-Agent')[0], 'SurfacewatchBot/'));
 });
 
 test('hosts that resolve to private or metadata addresses are blocked', function (string $ip) {

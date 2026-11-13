@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\IpUtils;
 
 /**
  * Decides whether an IP address is private/internal and therefore off-limits.
- * This is the heart of Leakwatch's SSRF protection.
+ * This is the heart of Surfacewatch's SSRF protection.
  */
 class IpGuard
 {

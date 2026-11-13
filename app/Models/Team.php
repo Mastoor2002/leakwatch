@@ -99,7 +99,7 @@ class Team extends Model
     }
 
     /**
-     * Get the team's clients (Leakwatch).
+     * Get the team's clients (Surfacewatch).
      *
      * @return HasMany<Client, $this>
      */
@@ -109,7 +109,7 @@ class Team extends Model
     }
 
     /**
-     * Get the team's monitored sites (Leakwatch).
+     * Get the team's monitored sites (Surfacewatch).
      *
      * @return HasMany<Site, $this>
      */

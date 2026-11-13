@@ -33,7 +33,7 @@ class NewAdvisoriesFound extends SiteAlert
     {
         $message = (new MailMessage)
             ->error()
-            ->subject("[Leakwatch] Vulnerable packages on {$this->site->host}")
+            ->subject("[Surfacewatch] Vulnerable packages on {$this->site->host}")
             ->greeting("Vulnerable dependencies on {$this->site->host}")
             ->line('These installed packages have published security advisories:');
 

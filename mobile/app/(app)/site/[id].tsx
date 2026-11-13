@@ -165,7 +165,7 @@ export default function SiteDetail() {
           <Card>
             <Heading>Verify ownership</Heading>
             <Body muted>
-              Until you prove you own this site, Leakwatch only runs passive checks (TLS, headers, redirects, email auth). Add this DNS TXT
+              Until you prove you own this site, Surfacewatch only runs passive checks (TLS, headers, redirects, email auth). Add this DNS TXT
               record, or serve the token at the path below, then verify.
             </Body>
             <Mono>{site.verification.dns_record}</Mono>
@@ -194,7 +194,7 @@ export default function SiteDetail() {
             {findings.length === 0 ? (
               <Empty
                 title={site.last_scanned_at ? 'No open findings' : 'Not scanned yet'}
-                body={site.last_scanned_at ? 'Everything Leakwatch checked looks fine.' : 'Run a scan to see what is exposed.'}
+                body={site.last_scanned_at ? 'Everything Surfacewatch checked looks fine.' : 'Run a scan to see what is exposed.'}
               />
             ) : (
               findings.map((finding) => <FindingCard key={finding.id} finding={finding} />)
@@ -240,7 +240,7 @@ export default function SiteDetail() {
           ) : (
             <Empty
               title={site.agent.connected ? 'No vulnerable packages' : 'Agent not connected'}
-              body={site.agent.connected ? 'Composer packages match no known advisories.' : 'Install the Leakwatch agent on this site to check Composer packages.'}
+              body={site.agent.connected ? 'Composer packages match no known advisories.' : 'Install the Surfacewatch agent on this site to check Composer packages.'}
             />
           )
         ) : null}

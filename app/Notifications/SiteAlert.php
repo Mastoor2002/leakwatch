@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Notification as NotificationFacade;
 
 /**
- * Shared delivery for Leakwatch alerts: email to the team's owners/admins,
+ * Shared delivery for Surfacewatch alerts: email to the team's owners/admins,
  * plus the team's Slack webhook when one is configured.
  */
 abstract class SiteAlert extends Notification

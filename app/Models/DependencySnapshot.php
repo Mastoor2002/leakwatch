@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Carbon;
 
 /**
- * One report from the Leakwatch agent: the packages installed on a site at a point in time.
+ * One report from the Surfacewatch agent: the packages installed on a site at a point in time.
  *
  * @property int $id
  * @property int $site_id

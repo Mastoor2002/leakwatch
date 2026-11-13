@@ -2,10 +2,10 @@
 
 /**
  * ============================================================================
- *  DELIBERATELY VULNERABLE DEMO SITE - FOR LOCAL LEAKWATCH DEMOS ONLY
+ *  DELIBERATELY VULNERABLE DEMO SITE - FOR LOCAL SURFACEWATCH DEMOS ONLY
  * ============================================================================
  *
- *  This single file imitates a badly configured Laravel app so Leakwatch has
+ *  This single file imitates a badly configured Laravel app so Surfacewatch has
  *  something to find. Every "secret" below is fake. Never deploy this file to
  *  a server that is reachable from the internet.
  *
@@ -58,7 +58,7 @@ if ($path === '/') {
 <title>Bluebird Bakery (demo)</title></head>
 <body style="font-family: sans-serif; max-width: 640px; margin: 60px auto;">
 <h1>Bluebird Bakery</h1>
-<p>Fresh bread daily. <em>This is a deliberately misconfigured demo site for Leakwatch.</em></p>
+<p>Fresh bread daily. <em>This is a deliberately misconfigured demo site for Surfacewatch.</em></p>
 </body></html>
 HTML);
 }

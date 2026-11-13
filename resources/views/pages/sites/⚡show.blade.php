@@ -314,7 +314,7 @@ new #[Title('Site')] class extends Component {
         <flux:callout variant="warning" icon="shield-exclamation" data-test="verify-panel">
             <flux:callout.heading>{{ __('Verify you own this site to enable all checks') }}</flux:callout.heading>
             <flux:callout.text>
-                {{ __('Until ownership is verified, Leakwatch only runs passive checks (homepage headers, cookies, TLS and DNS). Probing paths like /.env is only done on sites you prove you control. Use either method:') }}
+                {{ __('Until ownership is verified, Surfacewatch only runs passive checks (homepage headers, cookies, TLS and DNS). Probing paths like /.env is only done on sites you prove you control. Use either method:') }}
             </flux:callout.text>
 
             <div class="mt-3 grid gap-4 md:grid-cols-2">
@@ -570,7 +570,7 @@ new #[Title('Site')] class extends Component {
         @if ($snapshot === null)
             <div class="rounded-xl border border-dashed border-zinc-300 p-8 dark:border-zinc-600">
                 <flux:heading>{{ __('No package data yet') }}</flux:heading>
-                <flux:text class="mt-1">{{ __('Install the Leakwatch agent in this Laravel app (see the Agent tab). It reports the installed Composer packages once a day, and Leakwatch alerts you when any of them gets a security advisory.') }}</flux:text>
+                <flux:text class="mt-1">{{ __('Install the Surfacewatch agent in this Laravel app (see the Agent tab). It reports the installed Composer packages once a day, and Surfacewatch alerts you when any of them gets a security advisory.') }}</flux:text>
                 <flux:button size="sm" class="mt-4" icon="key" wire:click="$set('tab', 'agent')">{{ __('Set up the agent') }}</flux:button>
             </div>
         @else
@@ -622,8 +622,8 @@ new #[Title('Site')] class extends Component {
     {{-- Agent --}}
     @if ($tab === 'agent')
         <div class="max-w-3xl space-y-4">
-            <flux:heading>{{ __('Leakwatch agent') }}</flux:heading>
-            <flux:text>{{ __('A tiny Composer package you install in the monitored Laravel app. Once a day it sends the list of installed packages (names and versions only - never code, config or secrets) so Leakwatch can match them against Packagist security advisories.') }}</flux:text>
+            <flux:heading>{{ __('Surfacewatch agent') }}</flux:heading>
+            <flux:text>{{ __('A tiny Composer package you install in the monitored Laravel app. Once a day it sends the list of installed packages (names and versions only - never code, config or secrets) so Surfacewatch can match them against Packagist security advisories.') }}</flux:text>
 
             @if ($site->agent_last_seen_at)
                 <flux:badge color="green" icon="check-circle">{{ __('Last report :time', ['time' => $site->agent_last_seen_at->diffForHumans()]) }}</flux:badge>

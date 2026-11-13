@@ -94,8 +94,8 @@ new class extends Component {
     @if ($this->stats['sites'] === 0)
         <div class="rounded-xl border border-dashed border-zinc-300 p-12 text-center dark:border-zinc-600" data-test="dashboard-empty">
             <flux:icon.shield-check class="mx-auto size-12 text-zinc-400" />
-            <flux:heading size="lg" class="mt-3">{{ __('Welcome to Leakwatch') }}</flux:heading>
-            <flux:text class="mx-auto mt-1 max-w-xl">{{ __('Add the websites you look after. Leakwatch checks them from the outside for the mistakes attackers scan for - exposed .env files, debug mode, open admin dashboards, weak TLS - and watches their Composer packages for new vulnerabilities.') }}</flux:text>
+            <flux:heading size="lg" class="mt-3">{{ __('Welcome to Surfacewatch') }}</flux:heading>
+            <flux:text class="mx-auto mt-1 max-w-xl">{{ __('Add the websites you look after. Surfacewatch checks them from the outside for the mistakes attackers scan for - exposed .env files, debug mode, open admin dashboards, weak TLS - and watches their Composer packages for new vulnerabilities.') }}</flux:text>
             <flux:button variant="primary" icon="plus" class="mt-5" :href="route('sites.index')" wire:navigate>{{ __('Add your first site') }}</flux:button>
         </div>
     @else

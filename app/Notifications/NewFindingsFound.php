@@ -29,7 +29,7 @@ class NewFindingsFound extends SiteAlert
     {
         $message = (new MailMessage)
             ->error()
-            ->subject("[Leakwatch] {$this->findings->count()} new security issue(s) on {$this->site->host}")
+            ->subject("[Surfacewatch] {$this->findings->count()} new security issue(s) on {$this->site->host}")
             ->greeting("New issues on {$this->site->host}")
             ->line('The latest scan found problems that need attention:');
 
@@ -52,7 +52,7 @@ class NewFindingsFound extends SiteAlert
             ->implode("\n");
 
         return [
-            'text' => ":rotating_light: *{$this->findings->count()} new security issue(s) on {$this->site->host}*\n{$lines}\n<{$this->siteUrl()}|Open in Leakwatch>",
+            'text' => ":rotating_light: *{$this->findings->count()} new security issue(s) on {$this->site->host}*\n{$lines}\n<{$this->siteUrl()}|Open in Surfacewatch>",
         ];
     }
 }

@@ -232,5 +232,5 @@ test('slack webhooks must be real slack urls', function () {
 
 test('the public bot page and landing page render', function () {
     $this->get('/')->assertOk()->assertSee('Find the leaks attackers scan for');
-    $this->get(route('bot'))->assertOk()->assertSee('LeakwatchBot');
+    $this->get(route('bot'))->assertOk()->assertSee('SurfacewatchBot');
 });

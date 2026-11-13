@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        // Leakwatch demo data (demo@leakwatch.test / password).
+        // Surfacewatch demo data (demo@leakwatch.test / password).
         $this->call(DemoSeeder::class);
     }
 }

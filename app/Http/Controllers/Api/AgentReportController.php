@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 /**
- * Receives the package list from the Leakwatch agent installed in a Laravel app.
+ * Receives the package list from the Surfacewatch agent installed in a Laravel app.
  */
 class AgentReportController extends Controller
 {

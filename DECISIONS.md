@@ -17,3 +17,4 @@ One line per decision, newest last. Why things are the way they are.
 - **Grade cap:** any open critical finding caps the grade at D regardless of score.
 - Queue retry_after raised to 660s (above RunScan's 600s timeout) so long scans are not re-released and failed mid-run.
 - IpGuard judges the IPv4 embedded in NAT64 (64:ff9b::/96) addresses instead of blocking the whole range, since Laravel Cloud's DNS64 returns them for IPv4-only hosts; 64:ff9b:1::/48 stays blocked.
+- Renamed the product to Surfacewatch (display name, emails, bot page, User-Agent, docs, mobile title). Kept internal identifiers (leakwatch config/env vars/commands, leakwatch/agent package, leakwatch-verification TXT format, leakwatch.tech domain, repo name) so production and existing verified sites keep working.

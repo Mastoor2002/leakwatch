@@ -52,7 +52,7 @@ class DemoSeeder extends Seeder
             $bakery = $team->clients()->create(['name' => 'Bluebird Bakery', 'contact_email' => 'owner@bluebird.example.com', 'notes' => 'Online shop on Laravel 10, hosted on a shared VPS.']);
             $legal = $team->clients()->create(['name' => 'Harbor Legal', 'contact_email' => 'it@harborlegal.example.com']);
             $fitness = $team->clients()->create(['name' => 'Peak Fitness', 'contact_email' => 'ops@peakfitness.example.com']);
-            $demo = $team->clients()->create(['name' => 'Leakwatch demo', 'notes' => 'Local deliberately-vulnerable app in demo/vulnerable-app. Never deploy it.']);
+            $demo = $team->clients()->create(['name' => 'Surfacewatch demo', 'notes' => 'Local deliberately-vulnerable app in demo/vulnerable-app. Never deploy it.']);
 
             $shop = $this->site($team, $bakery, 'https://shop.bluebird.example.com', true, [
                 ['env_exposed', Severity::Critical, 'Environment file publicly readable at /.env', '/.env', ['url' => 'https://shop.bluebird.example.com/.env', 'status' => 200, 'variable_count' => 34, 'sensitive_variables_present' => ['APP_KEY', 'DB_PASSWORD', 'MAIL_PASSWORD', 'STRIPE_SECRET'], 'note' => 'Values were not stored. Treat every secret in this file as compromised.']],

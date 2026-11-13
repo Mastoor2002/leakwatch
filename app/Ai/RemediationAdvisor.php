@@ -11,7 +11,7 @@ use RuntimeException;
  * Writes a plain-English explanation and fix for a finding using Claude.
  *
  * Only the check name, title, summary and the (already redacted) evidence are
- * sent - Leakwatch never stores secret values, so there are none to leak.
+ * sent - Surfacewatch never stores secret values, so there are none to leak.
  * Results are cached so the same kind of finding is only paid for once.
  */
 class RemediationAdvisor

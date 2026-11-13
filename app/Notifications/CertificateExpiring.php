@@ -21,7 +21,7 @@ class CertificateExpiring extends SiteAlert
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject("[Leakwatch] TLS certificate for {$this->site->host} expires in {$this->daysRemaining} days")
+            ->subject("[Surfacewatch] TLS certificate for {$this->site->host} expires in {$this->daysRemaining} days")
             ->line("The certificate for {$this->site->host} expires on {$this->expiresOn}.")
             ->line('Automatic renewal may be broken. Renew it before visitors see a browser warning.')
             ->action('Open site', $this->siteUrl());
