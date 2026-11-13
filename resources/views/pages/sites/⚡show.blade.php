@@ -540,7 +540,12 @@ new #[Title('Site')] class extends Component {
                     <flux:table.row :key="$scan->id">
                         <flux:table.cell>{{ $scan->created_at->toDayDateTimeString() }}</flux:table.cell>
                         <flux:table.cell>{{ $scan->trigger->label() }}</flux:table.cell>
-                        <flux:table.cell><flux:badge :color="$scan->status->color()" size="sm">{{ $scan->status->label() }}</flux:badge></flux:table.cell>
+                        <flux:table.cell>
+                            <flux:badge :color="$scan->status->color()" size="sm">{{ $scan->status->label() }}</flux:badge>
+                            @if ($scan->error)
+                                <div class="mt-1 max-w-md whitespace-normal text-xs text-red-600 dark:text-red-400">{{ $scan->error }}</div>
+                            @endif
+                        </flux:table.cell>
                         <flux:table.cell>
                             @if ($scan->grade)
                                 <flux:badge :color="\App\Scanning\Scoring::gradeColor($scan->grade)" size="sm">{{ $scan->grade }} · {{ $scan->score }}</flux:badge>
