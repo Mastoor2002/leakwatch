@@ -78,3 +78,23 @@ php artisan leakwatch:report
 | `tests/` | Pest tests: SSRF guard, every check (hit / miss / soft-404), scan lifecycle, access control, agent API, alerts |
 
 See `SPEC.md` for the full specification and `DECISIONS.md` for why things are built this way.
+
+## Mobile app (Android & iOS)
+
+A React Native (Expo) companion app lives in [`mobile/`](mobile/README.md). It signs in against the versioned JSON API (`/api/v1`) with a personal access token, shows your fleet overview and per-site findings, and can start and follow a scan. It talks to **your own Leakwatch server over HTTPS**.
+
+## API
+
+`POST /api/v1/auth/token` (email + password → token), `GET /api/v1/me`, `GET /api/v1/teams/{team}/overview|sites|sites/{site}`, `POST|GET /api/v1/teams/{team}/sites/{site}/scan`. Tokens are prefixed `lwu_`, stored as SHA-256 hashes, and every endpoint is scoped to a team the user belongs to.
+
+## HTTPS locally
+
+With Herd: `herd secure leakwatch` (then browse `https://leakwatch.test`). In production, deploy behind HTTPS — see [`NEXT_STEPS.md`](NEXT_STEPS.md).
+
+## Ethics
+
+Leakwatch performs only passive checks on unverified sites and never exploits a finding. Use it only on sites you own or have written permission to test.
+
+## License
+
+MIT — see [LICENSE](LICENSE). Contributions welcome: [CONTRIBUTING.md](CONTRIBUTING.md).
