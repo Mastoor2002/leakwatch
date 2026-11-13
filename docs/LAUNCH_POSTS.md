@@ -21,7 +21,7 @@ Category: Package/Project. One-liner: Finds exposed .env, debug mode and public 
 
 ## Show HN
 **Title:** Show HN: Leakwatch – external exposure monitor for Laravel sites
-First comment: what it checks, the SSRF/ownership-verification design, what's missing (email delivery is still being set up), and a request for feedback.
+First comment: what it checks, the SSRF/ownership-verification design, what's missing (a few more checks and rate-limit tuning), and a request for feedback.
 
 ## Blog post outline — "How I stopped my security scanner becoming an SSRF vector in Laravel"
 1. The risk: users type URLs your server fetches. 2. DNS resolve + every-IP check. 3. Pinning against rebinding. 4. Redirect rules. 5. Ownership verification gate. 6. How I tested it (Pest + fake DNS).
