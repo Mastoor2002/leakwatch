@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Carbon\CarbonInterface;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
@@ -37,7 +38,7 @@ class ApiToken extends Model
      *
      * @return array{token: string, model: self}
      */
-    public static function issue(User $user, string $name, ?Carbon $expiresAt = null): array
+    public static function issue(User $user, string $name, ?CarbonInterface $expiresAt = null): array
     {
         $plain = self::PREFIX.Str::random(48);
 

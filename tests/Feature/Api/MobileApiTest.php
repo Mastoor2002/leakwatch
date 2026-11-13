@@ -26,7 +26,7 @@ function bearer(string $token): array
 function fakeMobileScanTarget(): void
 {
     Http::fake([
-        'https://shop.example.com/.env' => Http::response("APP_KEY=x\nDB_PASSWORD=y\n"),
+        'https://shop.example.com/.env' => Http::response("APP_KEY=x\nDB_PASSWORD=y\nAPP_ENV=production\n"),
         'https://shop.example.com/' => Http::response('<!DOCTYPE html><html><head><meta name="csrf-token" content="t"><title>Shop</title></head><body>Shop home page with enough text.</body></html>', 200, [
             'Set-Cookie' => ['XSRF-TOKEN=a; path=/; secure; samesite=lax', 'shop_session=b; path=/; secure; httponly; samesite=lax'],
             'Strict-Transport-Security' => 'max-age=31536000',
