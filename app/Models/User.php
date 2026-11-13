@@ -78,4 +78,17 @@ class User extends Authenticatable implements MustVerifyEmail, PasskeyUser
             ? Str::substr($initials, 0, 1).Str::substr($initials, -1)
             : $initials;
     }
+
+    /**
+     * Treat every account as verified when email verification is switched off
+     * (demo deployments without outgoing mail).
+     */
+    public function hasVerifiedEmail(): bool
+    {
+        if (! config('leakwatch.require_email_verification')) {
+            return true;
+        }
+
+        return ! is_null($this->email_verified_at);
+    }
 }

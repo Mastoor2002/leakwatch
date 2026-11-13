@@ -19,6 +19,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Email verification
+    |--------------------------------------------------------------------------
+    |
+    | Accounts must verify their email address by default. Set this to false
+    | for demo deployments that have no outgoing mail configured, so new
+    | accounts can sign in straight away.
+    |
+    */
+
+    'require_email_verification' => (bool) env('LEAKWATCH_REQUIRE_EMAIL_VERIFICATION', true),
+
+    /*
+    |--------------------------------------------------------------------------
     | Scan driver
     |--------------------------------------------------------------------------
     |

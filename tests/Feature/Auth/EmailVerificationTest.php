@@ -75,3 +75,17 @@ test('already verified user visiting verification link is redirected without fir
     expect($user->fresh()->hasVerifiedEmail())->toBeTrue();
     Event::assertNotDispatched(Verified::class);
 });
+
+test('accounts count as verified when email verification is switched off', function () {
+    config(['leakwatch.require_email_verification' => false]);
+
+    $user = User::factory()->unverified()->create();
+
+    expect($user->hasVerifiedEmail())->toBeTrue();
+});
+
+test('unverified accounts stay unverified by default', function () {
+    $user = User::factory()->unverified()->create();
+
+    expect($user->hasVerifiedEmail())->toBeFalse();
+});
