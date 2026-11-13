@@ -10,6 +10,8 @@ Built with Laravel 13, Livewire 4 (single-file components), Flux UI and Pest.
 
 ![Security overview dashboard](docs/screenshots/dashboard.png)
 
+![Sites list with grades and open issues](docs/screenshots/sites.png)
+
 ## Features
 
 - Agencies → **clients** → **sites**, using the starter kit's teams, roles and invitations.
