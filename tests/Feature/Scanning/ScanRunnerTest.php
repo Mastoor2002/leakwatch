@@ -3,12 +3,13 @@
 use App\Enums\CheckStatus;
 use App\Enums\FindingStatus;
 use App\Enums\ScanStatus;
+use App\Enums\Severity;
 use App\Events\ScanCompleted;
 use App\Models\Finding;
 use App\Scanning\ScanLauncher;
 use App\Scanning\ScanRunner;
 use App\Scanning\Scoring;
-use App\Enums\Severity;
+use Illuminate\Http\Client\Factory;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Http;
 
@@ -72,7 +73,7 @@ test('fixed problems are resolved on the next scan and come back as regressions'
     $finding = $site->findings()->where('check_key', 'env_exposed')->sole();
     expect($finding->status)->toBe(FindingStatus::Open);
 
-    Http::swap(new \Illuminate\Http\Client\Factory);
+    Http::swap(new Factory);
     fakeVulnerableSite(envExposed: false);
     $second = $launcher->launch($site);
     $runner->runToCompletion($second);
@@ -81,7 +82,7 @@ test('fixed problems are resolved on the next scan and come back as regressions'
         ->and($second->fresh()->resolved_findings_count)->toBe(1)
         ->and($site->fresh()->grade)->toBe('A');
 
-    Http::swap(new \Illuminate\Http\Client\Factory);
+    Http::swap(new Factory);
     fakeVulnerableSite();
     $runner->runToCompletion($launcher->launch($site));
 

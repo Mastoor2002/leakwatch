@@ -36,6 +36,7 @@ class PackageFinding extends Model
         'status' => 'open',
         'is_dev' => false,
     ];
+
     /**
      * @return BelongsTo<Site, $this>
      */

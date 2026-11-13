@@ -1,6 +1,7 @@
 <?php
 
 use App\Scanning\Exceptions\BlockedTargetException;
+use App\Scanning\Exceptions\RequestBudgetExceededException;
 use App\Scanning\SafeHttp;
 use Illuminate\Support\Facades\Http;
 
@@ -91,5 +92,5 @@ test('a per-check request budget stops runaway scans', function () {
     $http->get('https://shop.example.com/b');
 
     expect(fn () => $http->get('https://shop.example.com/c'))
-        ->toThrow(\App\Scanning\Exceptions\RequestBudgetExceededException::class);
+        ->toThrow(RequestBudgetExceededException::class);
 });

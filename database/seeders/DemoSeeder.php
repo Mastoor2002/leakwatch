@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Actions\Teams\CreateTeam;
-use App\Enums\CheckStatus;
+use App\Dependencies\VersionConstraint;
 use App\Enums\FindingStatus;
 use App\Enums\Severity;
 use App\Models\Advisory;
@@ -12,6 +12,7 @@ use App\Models\Scan;
 use App\Models\Site;
 use App\Models\Team;
 use App\Models\User;
+use App\Scanning\Checks\HttpsRedirectCheck;
 use App\Scanning\Contracts\Check;
 use App\Scanning\Data\CheckResult;
 use App\Scanning\Data\FindingData;
@@ -129,7 +130,7 @@ class DemoSeeder extends Seeder
             'check_key' => 'https_redirect', 'fingerprint' => hash('sha256', 'https_redirect|no-redirect'),
             'severity' => Severity::Medium, 'title' => 'Plain HTTP does not redirect to HTTPS',
             'summary' => 'Visitors who type the address without https:// get an unencrypted page.',
-            'evidence' => ['url' => "http://{$host}/", 'status' => 200], 'remediation' => \App\Scanning\Checks\HttpsRedirectCheck::remediation(),
+            'evidence' => ['url' => "http://{$host}/", 'status' => 200], 'remediation' => HttpsRedirectCheck::remediation(),
             'status' => FindingStatus::Resolved, 'resolved_at' => now()->subDays(1),
             'first_seen_scan_id' => $old->id, 'last_seen_scan_id' => $old->id,
         ]);
@@ -211,7 +212,7 @@ class DemoSeeder extends Seeder
         foreach ($this->advisories() as $advisory) {
             $installed = collect($packages)->firstWhere(0, $advisory->package_name);
 
-            if ($installed && \App\Dependencies\VersionConstraint::matches($installed[1], $advisory->affected_versions)) {
+            if ($installed && VersionConstraint::matches($installed[1], $advisory->affected_versions)) {
                 $site->packageFindings()->create([
                     'advisory_id' => $advisory->id,
                     'package_name' => $advisory->package_name,

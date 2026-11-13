@@ -3,9 +3,9 @@
 use App\Enums\ScanStatus;
 use App\Models\ApiToken;
 use App\Models\Finding;
-use App\Models\Site;
 use App\Models\User;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Queue;
 
 /**
  * Log a user in through the API and return a bearer token.
@@ -202,7 +202,7 @@ test('a scan can be started and polled to completion from the API', function () 
 
 test('starting a scan twice returns the same active scan', function () {
     config(['leakwatch.scan_driver' => 'queue']);
-    \Illuminate\Support\Facades\Queue::fake();
+    Queue::fake();
     [$user, $site] = userWithSite();
     $headers = bearer(apiTokenFor($user));
     $slug = $user->currentTeam->slug;

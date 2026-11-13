@@ -3,8 +3,11 @@
 use App\Enums\ScanStatus;
 use App\Events\ScanCompleted;
 use App\Models\Finding;
+use App\Models\PackageFinding;
+use App\Models\User;
 use App\Notifications\Channels\SlackWebhookChannel;
 use App\Notifications\NewFindingsFound;
+use Database\Seeders\DemoSeeder;
 use Illuminate\Notifications\AnonymousNotifiable;
 use Illuminate\Support\Facades\Notification;
 
@@ -61,13 +64,13 @@ test('only real slack webhook urls are accepted', function (string $url, bool $v
 ]);
 
 test('the demo seeder builds a complete demo account', function () {
-    $this->seed(\Database\Seeders\DemoSeeder::class);
+    $this->seed(DemoSeeder::class);
 
-    $user = \App\Models\User::where('email', 'demo@leakwatch.test')->sole();
+    $user = User::where('email', 'demo@leakwatch.test')->sole();
 
     expect($user->currentTeam->name)->toBe('Northwind Digital')
         ->and($user->currentTeam->sites()->count())->toBe(6)
-        ->and(\App\Models\PackageFinding::count())->toBeGreaterThan(0)
+        ->and(PackageFinding::count())->toBeGreaterThan(0)
         ->and($user->currentTeam->sites()->where('host', 'vulnerable.test')->value('verification_token'))->toBe(config('leakwatch.demo_verification_token'));
 
     $this->actingAs($user)->get(route('dashboard'))->assertOk()->assertSee('shop.bluebird.example.com');

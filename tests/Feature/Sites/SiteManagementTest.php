@@ -8,6 +8,7 @@ use App\Models\Client;
 use App\Models\Finding;
 use App\Models\Site;
 use App\Models\User;
+use Illuminate\Http\Client\Factory;
 use Illuminate\Support\Facades\Http;
 use Livewire\Livewire;
 
@@ -115,7 +116,7 @@ test('ownership can be verified with a file, and a wrong token fails', function 
     Livewire::test('pages::sites.show', ['site' => $site])->call('verify');
     expect($site->fresh()->isVerified())->toBeFalse();
 
-    Http::swap(new \Illuminate\Http\Client\Factory);
+    Http::swap(new Factory);
     Http::fake(['https://shop.example.com/.well-known/leakwatch-verification.txt' => Http::response($site->verification_token."\n")]);
     Livewire::test('pages::sites.show', ['site' => $site])->call('verify');
     expect($site->fresh()->verification_method)->toBe(VerificationMethod::File);

@@ -4,6 +4,7 @@ namespace App\Notifications;
 
 use App\Models\Site;
 use App\Notifications\Channels\SlackWebhookChannel;
+use Illuminate\Notifications\AnonymousNotifiable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Notification as NotificationFacade;
 
@@ -23,7 +24,7 @@ abstract class SiteAlert extends Notification
      */
     public function via(object $notifiable): array
     {
-        return $notifiable instanceof \Illuminate\Notifications\AnonymousNotifiable
+        return $notifiable instanceof AnonymousNotifiable
             ? [SlackWebhookChannel::class]
             : ['mail'];
     }
