@@ -10,7 +10,7 @@ The part I'm proudest of is the security design of the scanner itself:
 - Path probes only run on sites whose ownership is verified (DNS TXT or a well-known file).
 - A soft-404 baseline avoids false "exposed file" alarms; `.env` findings store variable names only, never values.
 
-231 Pest tests. There's also an Expo mobile app on a versioned `/api/v1`. MIT licensed: https://github.com/Mastoor2002/leakwatch
+231 Pest tests. There's also an Expo mobile app on a versioned `/api/v1`. Try it live: https://leakwatch.tech. MIT licensed: https://github.com/Mastoor2002/leakwatch
 
 Happy to hear what checks you'd add or where the SSRF defence could be tighter.
 
@@ -21,10 +21,10 @@ Category: Package/Project. One-liner: Finds exposed .env, debug mode and public 
 
 ## Show HN
 **Title:** Show HN: Leakwatch – external exposure monitor for Laravel sites
-First comment: what it checks, the SSRF/ownership-verification design, what's missing (no hosted demo yet), and a request for feedback.
+First comment: what it checks, the SSRF/ownership-verification design, what's missing (email delivery is still being set up), and a request for feedback.
 
 ## Blog post outline — "How I stopped my security scanner becoming an SSRF vector in Laravel"
 1. The risk: users type URLs your server fetches. 2. DNS resolve + every-IP check. 3. Pinning against rebinding. 4. Redirect rules. 5. Ownership verification gate. 6. How I tested it (Pest + fake DNS).
 
 ## LinkedIn
-Built and open-sourced Leakwatch, a Laravel security exposure monitor with an Expo mobile app. Focus: a scanner that can't be turned against internal networks (SSRF-hardened), ownership-verified probing, no secrets stored. Repo: https://github.com/Mastoor2002/leakwatch — feedback welcome.
+Built and open-sourced Leakwatch, a Laravel security exposure monitor with an Expo mobile app. Focus: a scanner that can't be turned against internal networks (SSRF-hardened), ownership-verified probing, no secrets stored. Live: https://leakwatch.tech · Repo: https://github.com/Mastoor2002/leakwatch — feedback welcome.
