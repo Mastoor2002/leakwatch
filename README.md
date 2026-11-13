@@ -6,6 +6,10 @@ Leakwatch monitors a team's Laravel (and other PHP) websites from the outside. I
 
 Built with Laravel 13, Livewire 4 (single-file components), Flux UI and Pest.
 
+## Screenshots
+
+![Security overview dashboard](docs/screenshots/dashboard.png)
+
 ## Features
 
 - Agencies → **clients** → **sites**, using the starter kit's teams, roles and invitations.
