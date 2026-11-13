@@ -15,6 +15,7 @@
                 <div class="flex flex-col gap-6">
                     {{ $slot }}
                 </div>
+                <p class="mt-2 text-center text-xs text-zinc-500">{{ __('Built by Owais Mastoor') }}</p>
             </div>
         </div>
 

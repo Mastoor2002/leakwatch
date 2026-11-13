@@ -63,7 +63,7 @@
                 </div>
             </main>
 
-            <footer class="py-6 text-sm text-zinc-500">{{ __('Built with Laravel 13, Livewire and Flux.') }}</footer>
+            <footer class="py-6 text-sm text-zinc-500">{{ __('Built by Owais Mastoor · Laravel 13, Livewire and Flux.') }}</footer>
         </div>
     </body>
 </html>
