@@ -16,3 +16,4 @@ One line per decision, newest last. Why things are the way they are.
 - **PHP end-of-life lookup reads the whole map.** `config('leakwatch.php_eol.8.1')` would treat "8.1" as nested keys, so the check reads the array and indexes it.
 - **Grade cap:** any open critical finding caps the grade at D regardless of score.
 - Queue retry_after raised to 660s (above RunScan's 600s timeout) so long scans are not re-released and failed mid-run.
+- IpGuard judges the IPv4 embedded in NAT64 (64:ff9b::/96) addresses instead of blocking the whole range, since Laravel Cloud's DNS64 returns them for IPv4-only hosts; 64:ff9b:1::/48 stays blocked.

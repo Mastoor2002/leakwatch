@@ -32,7 +32,7 @@ class IpGuard
         // IPv6
         '::/128',           // unspecified
         '::1/128',          // loopback
-        '64:ff9b::/96',     // NAT64 (can map to internal IPv4)
+        '64:ff9b:1::/48',   // NAT64 local-use prefix (RFC 8215)
         '100::/64',         // discard
         '2001:db8::/32',    // documentation
         'fc00::/7',         // unique local
@@ -48,7 +48,9 @@ class IpGuard
             return true;
         }
 
-        // IPv4-mapped IPv6 (::ffff:127.0.0.1) - check the embedded IPv4 address.
+        // IPv4-mapped (::ffff:127.0.0.1) and NAT64 (64:ff9b::a00:1) IPv6 addresses
+        // carry an IPv4 address - judge that embedded address, so a NAT64 path to
+        // an internal IPv4 is still blocked while one to a public IPv4 is allowed.
         $mapped = self::embeddedIpv4($ip);
 
         if ($mapped !== null) {
@@ -70,7 +72,13 @@ class IpGuard
             return null;
         }
 
-        if (substr($packed, 0, 12) === str_repeat("\0", 10)."\xff\xff") {
+        $isMapped = substr($packed, 0, 12) === str_repeat("\0", 10)."\xff\xff";
+
+        // The well-known NAT64 prefix 64:ff9b::/96 (RFC 6052). DNS64 resolvers, such
+        // as the one on Laravel Cloud, return these for IPv4-only hosts.
+        $isNat64 = substr($packed, 0, 12) === hex2bin('0064ff9b0000000000000000');
+
+        if ($isMapped || $isNat64) {
             return (string) inet_ntop(substr($packed, 12));
         }
 
